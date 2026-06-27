@@ -1,0 +1,338 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+}
+body {
+  overflow: hidden;
+}
+.container {
+  width: 100%;
+  height: 95vh;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem;
+}
+/* .theme-switch-wrapper{
+    
+} */
+.calculator {
+  background: #201e1e;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  max-width: 100%;
+  max-height: 90vh;
+  display: flex;
+  aspect-ratio: 1/1;
+  position: relative;
+  flex-direction: column;
+  z-index: 0;
+}
+/* @keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+.calculator::before {
+  content: "";
+  position: absolute;
+  /* height: 100%;
+  width: 100%; */
+  background: conic-gradient(
+    from var(--deg) at center,
+    #006400,
+    #0f172a,
+    #0f1730,
+    #0c680c
+  );
+  inset: -0.1px;
+  border-radius: 0.5rem;
+  z-index: -1;
+  animation: spin 3s linear infinite;
+  filter: blur(10px);
+}
+@property --deg {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+@keyframes spin {
+  to {
+    --deg: 360deg;
+  }
+}
+.calculator form {
+  background: #201e1e;
+  border-radius: inherit;
+  padding: 1rem;
+}
+.calculator form .display {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0.4rem 0;
+}
+.calculator form .display input {
+  text-align: right;
+  flex: 1;
+  font-size: 1.5rem;
+  box-shadow: none;
+  /* border: 0.2rem solid; */
+  border-radius: 0.8rem;
+  /* border-color: darkgreen; */
+  background-color: #121212;
+}
+.calculator form .display input:active {
+  background-color: #121212;
+}
+.calculator form input {
+  border: 0;
+  outline: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  box-shadow:
+    -5px -3px 10px black,
+    5px 3px 10px black;
+  background: #1a1a1a;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: antiquewhite;
+  cursor: pointer;
+  margin: 0.2rem;
+}
+.calculator form input:active {
+  background-color: #006400;
+}
+form input.equal {
+  width: 4.5rem;
+  background-color: #006400;
+  color: antiquewhite;
+}
+form input.equal:active {
+  background-color: #1a1a1a;
+}
+form input.operator {
+  color: #006400;
+}
+footer {
+  background-color: #1a1a1a;
+  height: 5vh;
+  text-align: center;
+}
+footer h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-family: cursive;
+  color: antiquewhite;
+}
+footer h3 a {
+  color: #006400;
+  text-decoration: none;
+}
+@media screen and (min-width: 480px) {
+  .container {
+    padding: 0.5rem;
+  }
+  .calculator {
+    padding: 0.8rem;
+  }
+  .calculator form .display {
+    margin: 0.6rem 0;
+  }
+  .calculator form .display input {
+    font-size: 1.8rem;
+  }
+  .calculator form input {
+    width: 2.4rem;
+    height: 2.4rem;
+    font-size: 1rem;
+    margin: 0.3rem;
+  }
+  form input.equal {
+    width: 5.5rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  footer h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-family: cursive;
+    color: antiquewhite;
+    flex-wrap: wrap;
+  }
+}
+@media screen and (min-width: 640px) {
+  .container {
+    padding: 0.6rem;
+  }
+  .calculator {
+    padding: 0.9rem;
+  }
+  .calculator form .display {
+    margin: 0.75rem 0;
+  }
+  .calculator form .display input {
+    font-size: 2.1rem;
+  }
+  .calculator form input {
+    width: 2.8rem;
+    height: 2.8rem;
+    font-size: 1.1rem;
+    margin: 0.35rem;
+  }
+  form input.equal {
+    width: 6.5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 0.7rem;
+  }
+  .calculator {
+    padding: 1rem;
+  }
+  .calculator form .display {
+    margin: 0.9rem 0;
+  }
+  .calculator form .display input {
+    font-size: 2.4rem;
+  }
+  .calculator form input {
+    width: 3.2rem;
+    height: 3.2rem;
+    font-size: 1.2rem;
+    margin: 0.4rem;
+  }
+  form input.equal {
+    width: 7.4rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    padding: 0.7rem;
+  }
+  .calculator {
+    padding: 1.1rem;
+  }
+  .calculator form .display {
+    margin: 1rem 0;
+  }
+  .calculator form .display input {
+    font-size: 2.7rem;
+  }
+  .calculator form input {
+    width: 3.6rem;
+    height: 3.6rem;
+    font-size: 1.35rem;
+    margin: 0.45rem;
+  }
+  form input.equal {
+    width: 8.3rem;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    padding: 0.8rem;
+  }
+  .calculator {
+    padding: 1.2rem;
+  }
+  .calculator form .display {
+    margin: 1.1rem 0;
+  }
+  .calculator form .display input {
+    font-size: 3rem;
+  }
+  .calculator form input {
+    width: 4rem;
+    height: 4rem;
+    font-size: 1.5rem;
+    margin: 0.5rem;
+  }
+  form input.equal {
+    width: 9.2rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    padding: 0.9rem;
+  }
+  .calculator {
+    padding: 1.25rem;
+  }
+  .calculator form .display {
+    margin: 1.15rem 0;
+  }
+  .calculator form .display input {
+    font-size: 3.1rem;
+  }
+  .calculator form input {
+    width: 4.2rem;
+    height: 4.2rem;
+    font-size: 1.6rem;
+    margin: 0.52rem;
+  }
+  form input.equal {
+    width: 9.6rem;
+  }
+}
+
+@media screen and (min-width: 1536px) {
+  .container {
+    padding: 1rem;
+  }
+  .calculator {
+    padding: 1.3rem;
+  }
+  .calculator form .display {
+    margin: 1.2rem 0;
+  }
+  .calculator form .display input {
+    font-size: 3.2rem;
+  }
+  .calculator form input {
+    width: 4.3rem;
+    height: 4.3rem;
+    font-size: 1.65rem;
+    margin: 0.55rem;
+  }
+  .theme-switch-wrapper {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+  }
+
+  @media screen and (min-width: 480px) {
+    .theme-switch {
+      width: 60px;
+      height: 30px;
+      border-radius: 15px;
+    }
+
+    .theme-switch i {
+      font-size: 16px;
+    }
+  }
+}
